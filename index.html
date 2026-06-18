@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Preparaciones previas | Intranet Diagnóstico</title>
+  <style>
+    :root{--bg:#0f172a;--card:#111827;--muted:#94a3b8;--txt:#e5e7eb;--acc:#38bdf8;--ok:#22c55e;--warn:#f59e0b;--line:#243044}
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,Arial,sans-serif;background:linear-gradient(180deg,#081120,#0f172a 35%,#111827);color:var(--txt)}
+    .wrap{max-width:1200px;margin:0 auto;padding:24px} .hero{display:flex;justify-content:space-between;gap:16px;align-items:end;flex-wrap:wrap;padding:24px;background:rgba(17,24,39,.72);border:1px solid var(--line);border-radius:20px;backdrop-filter:blur(10px)}
+    h1{margin:0;font-size:clamp(28px,4vw,44px)} .sub{color:var(--muted);max-width:760px;line-height:1.5} .badge{display:inline-flex;gap:8px;align-items:center;padding:10px 14px;border-radius:999px;background:#0b1220;border:1px solid var(--line);color:#cbd5e1;font-size:14px}
+    .toolbar{display:grid;grid-template-columns:1.3fr .7fr .7fr;gap:12px;margin:20px 0} input,select{width:100%;padding:14px 16px;border-radius:14px;border:1px solid var(--line);background:#0b1220;color:var(--txt);outline:none}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px} .card{background:rgba(17,24,39,.92);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 10px 30px rgba(0,0,0,.18)}
+    .top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start} .title{font-size:24px;margin:0 0 6px} .type{color:var(--acc);font-weight:700;letter-spacing:.3px;text-transform:uppercase;font-size:12px} .tag{padding:6px 10px;border-radius:999px;background:#0b1220;border:1px solid var(--line);color:#cbd5e1;font-size:12px;white-space:nowrap}
+    ul{margin:14px 0 0;padding-left:18px;color:#dbe4f0;line-height:1.6} li{margin:6px 0} .footer{margin-top:18px;color:var(--muted);font-size:13px;line-height:1.5}
+    .note{margin-top:18px;padding:16px;border-left:4px solid var(--warn);background:rgba(245,158,11,.08);border-radius:12px;color:#fde68a}
+    .mini{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .chip{padding:6px 10px;border-radius:999px;background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.2);color:#bae6fd;font-size:12px}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}.toolbar{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hero">
+      <div>
+        <div class="badge">INTRANET • Preparaciones previas para pacientes hospitalizados</div>
+        <h1>Acceso rápido a protocolos de preparación</h1>
+        <p class="sub">Herramienta interna para enfermería y TCAE con instrucciones resumidas antes de TAC, Resonancia, Ecografía y Medicina Nuclear. Pensada para consulta ágil desde planta o control de enfermería.</p>
+      </div>
+      <div class="badge">Actualizable por servicio</div>
+    </div>
+
+    <div class="toolbar">
+      <input id="q" placeholder="Buscar prueba, palabra clave o preparación..." />
+      <select id="service">
+        <option value="all">Todas las pruebas</option>
+        <option value="tac">TAC</option>
+        <option value="rm">Resonancia</option>
+        <option value="eco">Ecografía</option>
+        <option value="mn">Medicina Nuclear</option>
+      </select>
+      <select id="ward">
+        <option value="all">Paciente hospitalizado</option>
+        <option value="ayuno">Con ayuno</option>
+        <option value="contraste">Con contraste</option>
+        <option value="movilidad">Inmovilidad / colaboración</option>
+      </select>
+    </div>
+
+    <div class="grid" id="cards">
+      <article class="card" data-type="tac" data-tags="ayuno contraste via venosa creatinina alergia">
+        <div class="top"><div><div class="type">TAC</div><h2 class="title">Tomografía computarizada</h2></div><div class="tag">Rápida consulta</div></div>
+        <div class="mini"><span class="chip">Ayuno según protocolo</span><span class="chip">Valorar contraste</span><span class="chip">Vía venosa permeable</span></div>
+        <ul>
+          <li>Comprobar identidad y solicitud.</li>
+          <li>Verificar alergias y función renal si hay contraste.</li>
+          <li>Mantener ayuno si el protocolo lo exige.</li>
+          <li>Retirar objetos metálicos según la zona a explorar.</li>
+          <li>Informar de la necesidad de colaborar e inmovilizarse.</li>
+        </ul>
+        <div class="footer">Útil para estudios con y sin contraste; adaptar siempre a la petición y al protocolo local.</div>
+      </article>
+
+      <article class="card" data-type="rm" data-tags="metal claustrofobia contraste ayuno marcapasos">
+        <div class="top"><div><div class="type">Resonancia</div><h2 class="title">RM / RMN</h2></div><div class="tag">Seguridad magnética</div></div>
+        <div class="mini"><span class="chip">Cribado metálico</span><span class="chip">Sin objetos ferromagnéticos</span><span class="chip">Control de claustrofobia</span></div>
+        <ul>
+          <li>Confirmar ausencia de implantes no compatibles.</li>
+          <li>Retirar joyas, tarjetas, prótesis y objetos metálicos.</li>
+          <li>Valorar sedación si existe ansiedad intensa.</li>
+          <li>Preparar contraste si está indicado y comprobar accesos.</li>
+          <li>Explicar que debe permanecer quieto durante la exploración.</li>
+        </ul>
+        <div class="footer">Prioridad absoluta: seguridad por campo magnético y comunicación clara con el paciente.</div>
+      </article>
+
+      <article class="card" data-type="eco" data-tags="ayuno vejiga agua abdomen renal vesical">
+        <div class="top"><div><div class="type">Ecografía</div><h2 class="title">Ecografía</h2></div><div class="tag">Depende del órgano</div></div>
+        <div class="mini"><span class="chip">Abdomen: ayuno</span><span class="chip">Pélvica: vejiga llena</span><span class="chip">Ropa cómoda</span></div>
+        <ul>
+          <li>Identificar el tipo de ecografía solicitada.</li>
+          <li>Abdomen: ayuno según pauta del servicio.</li>
+          <li>Pelvis / renal / vesical: posible ingesta de agua y vejiga llena.</li>
+          <li>Retirar ropa o accesorios que dificulten el acceso.</li>
+          <li>Explicar que es una prueba indolora y cooperativa.</li>
+        </ul>
+        <div class="footer">La preparación cambia mucho entre abdomen, partes blandas y estudios pélvicos; esta pantalla puede ampliarse por subtipos.</div>
+      </article>
+
+      <article class="card" data-type="mn" data-tags="ayuno hidratacion radiofarmaco embarazo lactancia aislamiento">
+        <div class="top"><div><div class="type">Medicina Nuclear</div><h2 class="title">Pruebas isotópicas</h2></div><div class="tag">Radioprotección</div></div>
+        <div class="mini"><span class="chip">Verificar embarazo / lactancia</span><span class="chip">Hidratación</span><span class="chip">Radioprotección</span></div>
+        <ul>
+          <li>Revisar consentimientos y antecedentes relevantes.</li>
+          <li>Comprobar embarazo y lactancia cuando proceda.</li>
+          <li>Seguir la pauta de ayuno o dieta específica si está indicada.</li>
+          <li>Asegurar hidratación previa y posterior según protocolo.</li>
+          <li>Dar instrucciones de contacto limitado si la prueba lo requiere.</li>
+        </ul>
+        <div class="footer">Incluye estudios diagnósticos y terapéuticos; conviene separar por tipo de radiofármaco en versiones futuras.</div>
+      </article>
+    </div>
+
+    <div class="note">
+      Nota: el contenido es una base funcional para intranet. Debe validarse y ajustarse con los protocolos oficiales de vuestro hospital antes de su despliegue clínico.
+    </div>
+  </div>
+
+  <script>
+    const q = document.getElementById('q');
+    const service = document.getElementById('service');
+    const ward = document.getElementById('ward');
+    const cards = [...document.querySelectorAll('.card')];
+    function filter(){
+      const t = q.value.toLowerCase().trim();
+      const s = service.value;
+      const w = ward.value;
+      cards.forEach(c=>{
+        const text = c.innerText.toLowerCase();
+        const tags = (c.dataset.tags || '');
+        const type = c.dataset.type;
+        const okT = !t || text.includes(t) || tags.includes(t);
+        const okS = s==='all' || s===type;
+        let okW = w==='all';
+        if(w==='ayuno') okW = tags.includes('ayuno');
+        if(w==='contraste') okW = tags.includes('contraste');
+        if(w==='movilidad') okW = tags.includes('inmovilidad') || tags.includes('colaboración') || tags.includes('quieto');
+        c.style.display = okT && okS && okW ? '' : 'none';
+      })
+    }
+    [q,service,ward].forEach(el=>el.addEventListener('input',filter));
+  </script>
+</body>
+</html>
