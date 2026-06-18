@@ -25,14 +25,14 @@
       <div>
         <div class="badge">INTRANET • Preparaciones previas para pacientes hospitalizados</div>
         <h1>Acceso rápido a protocolos de preparación</h1>
-        <p class="sub">Herramienta interna para enfermería y TCAE con instrucciones resumidas antes de TAC, Resonancia, Ecografía y Medicina Nuclear. Pensada para consulta ágil desde planta o control de enfermería.</p>
+        <p class="sub">Herramienta interna para Enfermería y Auxiliar de enfermería con instrucciones resumidas antes de TAC, Resonancia, Ecografía y Medicina Nuclear. Pensada para consulta ágil desde planta o control de enfermería.</p>
       </div>
       <div class="badge">Actualizable por servicio</div>
     </div>
 
     <div class="toolbar">
       <input id="q" placeholder="Buscar prueba, palabra clave o preparación..." />
-      <select id="service">
+    <select id="service">
         <option value="all">Todas las pruebas</option>
         <option value="tac">TAC</option>
         <option value="rm">Resonancia</option>
@@ -42,28 +42,55 @@
       <select id="ward">
         <option value="all">Paciente hospitalizado</option>
         <option value="ayuno">Con ayuno</option>
+        <option value="sinayuno">Sin ayuno</option>
         <option value="contraste">Con contraste</option>
+        <option value="sincontraste">Sin contraste</option>
+        <option value="sedacion">Con sedación</option>
         <option value="movilidad">Inmovilidad / colaboración</option>
       </select>
     </div>
 
     <div class="grid" id="cards">
-      <article class="card" data-type="tac" data-tags="ayuno contraste via venosa creatinina alergia">
-        <div class="top"><div><div class="type">TAC</div><h2 class="title">Tomografía computarizada</h2></div><div class="tag">Rápida consulta</div></div>
-        <div class="mini"><span class="chip">Ayuno según protocolo</span><span class="chip">Valorar contraste</span><span class="chip">Vía venosa permeable</span></div>
+      <article class="card" data-type="tac" data-tags="sinayuno sincontraste via venosa creatinina alergia">
+        <div class="top"><div><div class="type">TAC</div><h2 class="title">TAC sin contraste</h2></div><div class="tag">Rápida consulta</div></div>
+        <div class="mini"><span class="chip">Sin ayuno</span><span class="chip">Sin contraste</span><span class="chip">Valorar movilidad</span></div>
         <ul>
           <li>Comprobar identidad y solicitud.</li>
           <li>Verificar alergias y función renal si hay contraste.</li>
-          <li>Mantener ayuno si el protocolo lo exige.</li>
           <li>Retirar objetos metálicos según la zona a explorar.</li>
           <li>Informar de la necesidad de colaborar e inmovilizarse.</li>
         </ul>
-        <div class="footer">Útil para estudios con y sin contraste; adaptar siempre a la petición y al protocolo local.</div>
+        <div class="footer">Útil para estudios sin contraste; adaptar siempre a la petición y al protocolo local.</div>
       </article>
 
-      <article class="card" data-type="rm" data-tags="metal claustrofobia contraste ayuno marcapasos">
-        <div class="top"><div><div class="type">Resonancia</div><h2 class="title">RM / RMN</h2></div><div class="tag">Seguridad magnética</div></div>
-        <div class="mini"><span class="chip">Cribado metálico</span><span class="chip">Sin objetos ferromagnéticos</span><span class="chip">Control de claustrofobia</span></div>
+      <article class="card" data-type="tac" data-tags="ayuno contraste via venosa creatinina alergia">
+        <div class="top"><div><div class="type">TAC</div><h2 class="title">TAC con contraste</h2></div><div class="tag">Rápida consulta</div></div>
+        <div class="mini"><span class="chip">Ayuno de 6 horas</span><span class="chip">Valorar alergias</span><span class="chip">Vía venosa permeable</span></div>
+        <ul>
+          <li>Comprobar identidad y solicitud.</li>
+          <li>Verificar alergias y función renal si hay contraste.</li>
+          <li>Mantener ayuno.</li>
+          <li>Retirar objetos metálicos según la zona a explorar.</li>
+          <li>Informar de la necesidad de colaborar e inmovilizarse.</li>
+        </ul>
+        <div class="footer">Útil para estudios con contraste; adaptar siempre a la petición y al protocolo local.</div>
+      </article>
+
+      <article class="card" data-type="rm" data-tags="sinayuno sincontraste metal claustrofobia marcapasos sedacion">
+        <div class="top"><div><div class="type">Resonancia</div><h2 class="title">RM / RMN sin contraste</h2></div><div class="tag">Seguridad magnética</div></div>
+        <div class="mini"><span class="chip">Sin contraste</span><span class="chip">Sin ayuno</span><span class="chip">Puede requerir sedación</span></div>
+        <ul>
+          <li>Confirmar ausencia de implantes no compatibles.</li>
+          <li>Retirar joyas, tarjetas, prótesis y objetos metálicos.</li>
+          <li>Valorar sedación si existe ansiedad intensa.</li>
+          <li>Explicar que debe permanecer quieto durante la exploración.</li>
+        </ul>
+        <div class="footer">Prioridad absoluta: seguridad por campo magnético y comunicación clara con el paciente.</div>
+      </article>
+
+      <article class="card" data-type="rm" data-tags="ayuno contraste metal claustrofobia marcapasos sedacion">
+        <div class="top"><div><div class="type">Resonancia</div><h2 class="title">RM / RMN con contraste</h2></div><div class="tag">Seguridad magnética</div></div>
+        <div class="mini"><span class="chip">Con contraste</span><span class="chip">Valorar ayuno</span><span class="chip">Puede requerir sedación</span></div>
         <ul>
           <li>Confirmar ausencia de implantes no compatibles.</li>
           <li>Retirar joyas, tarjetas, prótesis y objetos metálicos.</li>
@@ -87,8 +114,8 @@
         <div class="footer">La preparación cambia mucho entre abdomen, partes blandas y estudios pélvicos; esta pantalla puede ampliarse por subtipos.</div>
       </article>
 
-      <article class="card" data-type="mn" data-tags="ayuno hidratacion radiofarmaco embarazo lactancia aislamiento">
-        <div class="top"><div><div class="type">Medicina Nuclear</div><h2 class="title">Pruebas isotópicas</h2></div><div class="tag">Radioprotección</div></div>
+      <article class="card" data-type="mn" data-tags="sinayuno hidratacion radiofarmaco embarazo lactancia aislamiento">
+        <div class="top"><div><div class="type">Medicina Nuclear</div><h2 class="title">Gammagrafías</h2></div><div class="tag">Radioprotección</div></div>
         <div class="mini"><span class="chip">Verificar embarazo / lactancia</span><span class="chip">Hidratación</span><span class="chip">Radioprotección</span></div>
         <ul>
           <li>Revisar consentimientos y antecedentes relevantes.</li>
@@ -111,23 +138,26 @@
     const service = document.getElementById('service');
     const ward = document.getElementById('ward');
     const cards = [...document.querySelectorAll('.card')];
-    function filter(){
-      const t = q.value.toLowerCase().trim();
-      const s = service.value;
-      const w = ward.value;
-      cards.forEach(c=>{
-        const text = c.innerText.toLowerCase();
-        const tags = (c.dataset.tags || '');
-        const type = c.dataset.type;
-        const okT = !t || text.includes(t) || tags.includes(t);
-        const okS = s==='all' || s===type;
-        let okW = w==='all';
-        if(w==='ayuno') okW = tags.includes('ayuno');
-        if(w==='contraste') okW = tags.includes('contraste');
-        if(w==='movilidad') okW = tags.includes('inmovilidad') || tags.includes('colaboración') || tags.includes('quieto');
-        c.style.display = okT && okS && okW ? '' : 'none';
-      })
-    }
+function filter(){
+  const t = q.value.toLowerCase().trim();
+  const s = service.value;
+  const w = ward.value;
+  cards.forEach(c=>{
+    const text = c.innerText.toLowerCase();
+    const tags = (c.dataset.tags || '');
+    const type = c.dataset.type;
+    const okT = !t || text.includes(t) || tags.includes(t);
+    const okS = s === 'all' || s === type;
+    let okW = w === 'all';
+    if (w === 'ayuno') okW = tags.includes('ayuno');
+    if (w === 'sinayuno') okW = tags.includes('sinayuno');
+    if (w === 'contraste') okW = tags.includes('contraste');
+    if (w === 'sincontraste') okW = tags.includes('sincontraste');
+    if (w === 'sedacion') okW = tags.includes('sedacion') || tags.includes('sedación');
+    if (w === 'movilidad') okW = tags.includes('inmovilidad') || tags.includes('colaboración') || tags.includes('quieto');
+    c.style.display = okT && okS && okW ? '' : 'none';
+  });
+}
     [q,service,ward].forEach(el=>el.addEventListener('input',filter));
   </script>
 </body>
