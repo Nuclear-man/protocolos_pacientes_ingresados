@@ -17,6 +17,18 @@
     .mini{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
     .chip{padding:6px 10px;border-radius:999px;background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.2);color:#bae6fd;font-size:12px}
     @media (max-width:900px){.grid{grid-template-columns:1fr}.toolbar{grid-template-columns:1fr}}
+    
+          /* POSICION DEL QR */
+ position: relative; /* referencia para la imagen */
+  width: 300px;
+  height: 200px;
+  background: lightgray;
+}
+.imagen-fija {
+  position: absolute;
+  top: 15px;   /* distancia desde arriba */
+  left: 400px;  /* distancia desde la izquierda */
+}
   </style>
 </head>
 <body>
@@ -24,10 +36,11 @@
     <div class="hero">
       <div>
         <div class="badge">INTRANET • Preparaciones previas para pacientes hospitalizados</div>
-        <h1>Acceso rápido a protocolos de preparación</h1>
+        <h1>Protocolos de preparación pruebas radiológicas</h1>
         <p class="sub">Herramienta interna para Enfermería y Auxiliar de enfermería con instrucciones resumidas antes de TAC, Resonancia, Ecografía y Medicina Nuclear. Pensada para consulta ágil desde planta o control de enfermería.</p>
       </div>
-      <div class="badge">Actualizable por servicio</div>
+      <div class="badge">QR GUÍA MÓVIL</div>
+      <img src="./imagenes/qrpruebas.png" alt="QR guía RM" class="imagen-fija" style="width:100px; height:100px; object-fit:contain;">
     </div>
 
     <div class="toolbar">
@@ -52,58 +65,64 @@
 
     <div class="grid" id="cards">
       <article class="card" data-type="tac" data-tags="sinayuno sincontraste via venosa creatinina alergia">
-        <div class="top"><div><div class="type">TAC</div><h2 class="title">TAC sin contraste</h2></div><div class="tag">Rápida consulta</div></div>
-        <div class="mini"><span class="chip">Sin ayuno</span><span class="chip">Sin contraste</span><span class="chip">Valorar movilidad</span></div>
+        <div class="top"><div><div class="type">TAC</div><h2 class="title">TAC SIN CONTRASTE</h2></div><div class="tag">Rápida consulta</div></div>
+        <div class="mini"><span class="chip">SIN AYUNO</span><span class="chip">ALERGIA YODO</span><span class="chip">PATOLOGIA RENAL</span></div>
         <ul>
           <li>Comprobar identidad y solicitud.</li>
-          <li>Verificar alergias y función renal si hay contraste.</li>
+          <li>Analalíticas renales alteradas (Creatinina y TFGD).</li> 
           <li>Retirar objetos metálicos según la zona a explorar.</li>
           <li>Informar de la necesidad de colaborar e inmovilizarse.</li>
+          <li>Embarazo.</li>
         </ul>
-        <div class="footer">Útil para estudios sin contraste; adaptar siempre a la petición y al protocolo local.</div>
+        <div class="footer">TAC DE CRANEO - TAC MUSCULO ESQUELÉTICO.</div>
       </article>
 
       <article class="card" data-type="tac" data-tags="ayuno contraste via venosa creatinina alergia">
-        <div class="top"><div><div class="type">TAC</div><h2 class="title">TAC con contraste</h2></div><div class="tag">Rápida consulta</div></div>
-        <div class="mini"><span class="chip">Ayuno de 6 horas</span><span class="chip">Valorar alergias</span><span class="chip">Vía venosa permeable</span></div>
+        <div class="top"><div><div class="type">TAC</div><h2 class="title">TAC CON CONTRASTE</h2></div><div class="tag">Rápida consulta</div></div>
+        <div class="mini"><span class="chip">AYUNO 6 HORAS</span><span class="chip">¿ALERGIAS CONTRASTE?</span><span class="chip">VÍA VENOSA PERMEABLE</span></div>
         <ul>
           <li>Comprobar identidad y solicitud.</li>
           <li>Verificar alergias y función renal si hay contraste.</li>
-          <li>Mantener ayuno.</li>
+          <li>Mantener ayuno de 6 horas.</li>
           <li>Retirar objetos metálicos según la zona a explorar.</li>
           <li>Informar de la necesidad de colaborar e inmovilizarse.</li>
+          <li>Embarazo.</li>
         </ul>
-        <div class="footer">Útil para estudios con contraste; adaptar siempre a la petición y al protocolo local.</div>
+        <div class="footer">TAC CUELLO / TORAX / ABDOMEN / PELVIS - ANGIOTAC - ANGIO TEP.</div>
       </article>
 
       <article class="card" data-type="rm" data-tags="sinayuno sincontraste metal claustrofobia marcapasos sedacion">
-        <div class="top"><div><div class="type">Resonancia</div><h2 class="title">RM / RMN sin contraste</h2></div><div class="tag">Seguridad magnética</div></div>
-        <div class="mini"><span class="chip">Sin contraste</span><span class="chip">Sin ayuno</span><span class="chip">Puede requerir sedación</span></div>
+        <div class="top"><div><div class="type">Resonancia</div><h2 class="title">RM SIN CONTRASTE</h2></div><div class="tag">Seguridad magnética</div></div>
+        <div class="mini"><span class="chip">IMPLANTES METÁLICOS</span><span class="chip">SIN AYUNAR</span><span class="chip">PUEDE REQUERIR SEDACIÓN</span></div>
         <ul>
-          <li>Confirmar ausencia de implantes no compatibles.</li>
+          <li>Confirmar ausencia de implantes no compatibles (Marcapasos).</li>
           <li>Retirar joyas, tarjetas, prótesis y objetos metálicos.</li>
           <li>Valorar sedación si existe ansiedad intensa.</li>
           <li>Explicar que debe permanecer quieto durante la exploración.</li>
+          <li>Requiere de entrevista previa para entrar en la resonancia.
+            En caso de que no pueda firmar el paciente debe hacerlo un responsable.</li>
         </ul>
-        <div class="footer">Prioridad absoluta: seguridad por campo magnético y comunicación clara con el paciente.</div>
+        <div class="footer">RM CRANEO - RM ARTICULAR - RM COLUMNA</div>
       </article>
 
       <article class="card" data-type="rm" data-tags="ayuno contraste metal claustrofobia marcapasos sedacion">
-        <div class="top"><div><div class="type">Resonancia</div><h2 class="title">RM / RMN con contraste</h2></div><div class="tag">Seguridad magnética</div></div>
-        <div class="mini"><span class="chip">Con contraste</span><span class="chip">Valorar ayuno</span><span class="chip">Puede requerir sedación</span></div>
+        <div class="top"><div><div class="type">Resonancia</div><h2 class="title">RM CON CONTRASTE</h2></div><div class="tag">Seguridad magnética</div></div>
+        <div class="mini"><span class="chip">IMPLANTES METÁLICOS</span><span class="chip">AYUNO 6 H</span><span class="chip">PUEDE REQUERIR SEDACIÓN</span></div>
         <ul>
-          <li>Confirmar ausencia de implantes no compatibles.</li>
+          <li>Confirmar ausencia de implantes no compatibles (Marcapasos).</li>
           <li>Retirar joyas, tarjetas, prótesis y objetos metálicos.</li>
           <li>Valorar sedación si existe ansiedad intensa.</li>
-          <li>Preparar contraste si está indicado y comprobar accesos.</li>
+          <li>Requiere de vía venosa permeable.</li>
           <li>Explicar que debe permanecer quieto durante la exploración.</li>
+          <li>Requiere de entrevista previa para entrar en la resonancia.
+            En caso de que no pueda firmar el paciente debe hacerlo un responsable.</li>
         </ul>
-        <div class="footer">Prioridad absoluta: seguridad por campo magnético y comunicación clara con el paciente.</div>
+        <div class="footer">ANGIORESONANCIA - RESONANCIA CARDÍACA - COLANGIORESONANCIAS.</div>
       </article>
 
       <article class="card" data-type="eco" data-tags="ayuno vejiga agua abdomen renal vesical">
         <div class="top"><div><div class="type">Ecografía</div><h2 class="title">Ecografía</h2></div><div class="tag">Depende del órgano</div></div>
-        <div class="mini"><span class="chip">Abdomen: ayuno</span><span class="chip">Pélvica: vejiga llena</span><span class="chip">Ropa cómoda</span></div>
+        <div class="mini"><span class="chip">ABDOMEN=>AYUNO</span><span class="chip">PÉLVICA=>VEJIGA LLENA</span><span class="chip">Ropa cómoda</span></div>
         <ul>
           <li>Identificar el tipo de ecografía solicitada.</li>
           <li>Abdomen: ayuno según pauta del servicio.</li>
@@ -111,7 +130,7 @@
           <li>Retirar ropa o accesorios que dificulten el acceso.</li>
           <li>Explicar que es una prueba indolora y cooperativa.</li>
         </ul>
-        <div class="footer">La preparación cambia mucho entre abdomen, partes blandas y estudios pélvicos; esta pantalla puede ampliarse por subtipos.</div>
+        <div class="footer">ECO ABDOMEN - ECO RENAL - ECO DOPPLER - ECO MUSCULAR</div>
       </article>
 
       <article class="card" data-type="mn" data-tags="sinayuno hidratacion radiofarmaco embarazo lactancia aislamiento">
@@ -120,16 +139,16 @@
         <ul>
           <li>Revisar consentimientos y antecedentes relevantes.</li>
           <li>Comprobar embarazo y lactancia cuando proceda.</li>
-          <li>Seguir la pauta de ayuno o dieta específica si está indicada.</li>
-          <li>Asegurar hidratación previa y posterior según protocolo.</li>
+          <li>En gammagrafías óseas no requiere ayuno.</li>
+          <li>Asegurar hidratación previa y durante la prueba.</li>
           <li>Dar instrucciones de contacto limitado si la prueba lo requiere.</li>
         </ul>
-        <div class="footer">Incluye estudios diagnósticos y terapéuticos; conviene separar por tipo de radiofármaco en versiones futuras.</div>
+        <div class="footer">GAMMAGRAFIA ÓSEA - GAMMAGRAFÍA CON GALIO-67</div>
       </article>
     </div>
 
     <div class="note">
-      Nota: el contenido es una base funcional para intranet. Debe validarse y ajustarse con los protocolos oficiales de vuestro hospital antes de su despliegue clínico.
+      Nota: el contenido es una base funcional para intranet. Debe validarse y ajustarse con los protocolos oficiales del hospital antes de su despliegue clínico.
     </div>
   </div>
 
