@@ -36,36 +36,49 @@
     <div class="hero">
       <div>
         <div class="badge">INTRANET • Preparaciones previas</div>
-        <h1>Protocolos de preparación pruebas radiológicas en pacientes Hospitalizados</h1>
-        <p class="sub">Herramienta interna para Enfermería y Auxiliar de enfermería con instrucciones resumidas antes de TAC, Resonancia, Ecografía y Medicina Nuclear. Pensada para consulta ágil desde planta o control de enfermería.</p>
+        <h1>Protocolos de preparación en pacientes Hospitalizados</h1>
+        <p class="sub">Herramienta interna para Enfermería y Auxiliar de enfermería con instrucciones resumidas antes de que el paciente sea movilizado. Pensada para consulta ágil desde planta o control de enfermería, y desde móvil o tablet.</p>
       </div>
       <div class="badge">QR GUÍA MÓVIL</div>
       <img src="./imagenes/qrpruebas.png" alt="QR guía RM" class="imagen-fija" style="width:125px; height:125px; object-fit:contain;">
     </div>
-
+								<!--BLOQUE PARA BUSCAR PRUEBA MANUAL-->
     <div class="toolbar">
       <input id="q" placeholder="Buscar prueba, palabra clave o preparación..." />
+      
+						<!--BLOQUE PARA BUSCAR POR PRUEBA-->
+      
     <select id="service">
         <option value="all">Todas las pruebas</option>
         <option value="tac">TAC</option>
         <option value="rm">Resonancia</option>
         <option value="eco">Ecografía</option>
         <option value="mn">Medicina Nuclear</option>
+       	<option value="mn">Nombres según pestaña de procedimiento</option> <!--Bloque estandar para incluir en "Todas las pruebas"-->
       </select>
+     						<!--BLOQUE PARA BUSCAR POR PREPARACIÓN PREVIA-->
+ 
       <select id="ward">
-        <option value="all">Paciente hospitalizado</option>
+        <option value="all">Busca por preparación previa</option>
         <option value="ayuno">Con ayuno</option>
         <option value="sinayuno">Sin ayuno</option>
         <option value="contraste">Con contraste</option>
         <option value="sincontraste">Sin contraste</option>
         <option value="sedacion">Con sedación</option>
         <option value="movilidad">Inmovilidad / colaboración</option>
+        <option value="palabra clave">Añadir palabra clave</option> <!--Línea para selección de condiciones de paciente-->
       </select>
     </div>
-
+										<!--BOLQUE DE TAC SIN CONTRASTE-->
     <div class="grid" id="cards">
       <article class="card" data-type="tac" data-tags="sinayuno sincontraste via venosa creatinina alergia">
-        <div class="top"><div><div class="type">TAC</div><h2 class="title">TAC SIN CONTRASTE</h2></div><div class="tag">Rápida consulta</div></div>
+        <div class="top"><div><div class="type">TAC</div><h2 class="title">TAC SIN CONTRASTE</h2></div>
+        
+          <a href="https://nuclear-man.github.io/guia-tac/" target="_blank" ><!--enlace nueva pestaña target="_blank"-->  
+          <div class="tag">Guia TAC</div>
+          </a>
+        
+        </div>
         <div class="mini"><span class="chip">SIN AYUNO</span><span class="chip">ALERGIA YODO</span><span class="chip">PATOLOGIA RENAL</span></div>
         <ul>
           <li>Comprobar identidad y solicitud.</li>
@@ -77,8 +90,16 @@
         <div class="footer">TAC DE CRANEO - TAC MÚSCULO ESQUELÉTICO.</div>
       </article>
 
+      							<!--BOLQUE DE TAC CON CONTRASTE-->
+      
       <article class="card" data-type="tac" data-tags="ayuno contraste via venosa creatinina alergia">
-        <div class="top"><div><div class="type">TAC</div><h2 class="title">TAC CON CONTRASTE</h2></div><div class="tag">Rápida consulta</div></div>
+        <div class="top"><div><div class="type">TAC</div><h2 class="title">TAC CON CONTRASTE</h2></div>
+          
+          <a href="https://nuclear-man.github.io/guia-tac/" target="_blank" ><!--enlace nueva pestaña target="_blank"-->  
+          <div class="tag">Guia TAC</div>
+          </a>        
+        
+        </div>
         <div class="mini"><span class="chip">AYUNO 6 HORAS</span><span class="chip">¿ALERGIAS CONTRASTE?</span><span class="chip">VÍA VENOSA PERMEABLE</span></div>
         <ul>
           <li>Comprobar identidad y solicitud.</li>
@@ -91,8 +112,17 @@
         <div class="footer">TAC CUELLO / TORAX / ABDOMEN / PELVIS - ANGIOTAC - ANGIO TEP.</div>
       </article>
 
+     
+      									<!--BLOQUE DE RESO SIN CONTRASTE-->
       <article class="card" data-type="rm" data-tags="sinayuno sincontraste metal claustrofobia marcapasos sedacion">
-        <div class="top"><div><div class="type">Resonancia</div><h2 class="title">RM SIN CONTRASTE</h2></div><div class="tag">Seguridad magnética</div></div>
+        <div class="top"><div><div class="type">Resonancia</div><h2 class="title">RM SIN CONTRASTE</h2></div>
+          
+                  <a href="https://nuclear-man.github.io/guia-RM/" target="_blank" ><!--enlace nueva pestaña target="_blank"-->  
+          <div class="tag">CUESTIONARIO RESONANCIA</div>
+          </a>
+        
+        
+        </div>
         <div class="mini"><span class="chip">IMPLANTES METÁLICOS</span><span class="chip">SIN AYUNAS</span><span class="chip">PUEDE REQUERIR SEDACIÓN</span></div>
         <ul>
           <li>Confirmar ausencia de implantes no compatibles (Marcapasos).</li>
@@ -106,8 +136,16 @@
         <div class="footer">RM CRANEO - RM ARTICULAR - RM COLUMNA</div>
       </article>
 
+     
+      						<!--BOLQUE DE RESO CON CONTRASTE-->
       <article class="card" data-type="rm" data-tags="ayuno contraste metal claustrofobia marcapasos sedacion">
-        <div class="top"><div><div class="type">Resonancia</div><h2 class="title">RM CON CONTRASTE</h2></div><div class="tag">Seguridad magnética</div></div>
+        <div class="top"><div><div class="type">Resonancia</div><h2 class="title">RM CON CONTRASTE</h2></div>
+           
+          <a href="https://nuclear-man.github.io/guia-RM/" target="_blank" ><!--enlace nueva pestaña target="_blank"-->  
+          <div class="tag">CUESTIONARIO RESONANCIA</div>
+          </a>
+        
+        </div>
         <div class="mini"><span class="chip">IMPLANTES METÁLICOS</span><span class="chip">AYUNO 6 H</span><span class="chip">PUEDE REQUERIR SEDACIÓN</span></div>
         <ul>
           <li>Confirmar ausencia de implantes no compatibles (Marcapasos).</li>
@@ -122,8 +160,16 @@
         <div class="footer">ANGIORESONANCIA - RESONANCIA CARDÍACA - COLANGIORESONANCIAS.</div>
       </article>
 
+     
+      							<!--BOLQUE DE ECOGRAFIA-->
       <article class="card" data-type="eco" data-tags="ayuno vejiga agua abdomen renal vesical">
-        <div class="top"><div><div class="type">Ecografía</div><h2 class="title">Ecografía</h2></div><div class="tag">Depende del órgano</div></div>
+        <div class="top"><div><div class="type">Ecografía</div><h2 class="title">Ecografía</h2></div>
+          
+          <a href="https://nuclear-man.github.io/guia-eco/" target="_blank" ><!--enlace nueva pestaña target="_blank"-->  
+          <div class="tag">GUIA ECOGRAFIA</div>
+          </a>
+        
+        </div>
         <div class="mini"><span class="chip">ABDOMEN=>AYUNO</span><span class="chip">PÉLVICA=>VEJIGA LLENA</span><span class="chip">Ropa cómoda</span></div>
         <ul>
           <li>Identificar el tipo de ecografía solicitada.</li>
@@ -135,8 +181,16 @@
         <div class="footer">ECO ABDOMEN - ECO RENAL - ECO DOPPLER - ECO MUSCULAR</div>
       </article>
 
+      
+      								<!--BOLQUE DE MEDICINA NUCLEAR-->
       <article class="card" data-type="mn" data-tags="sinayuno hidratacion radiofarmaco embarazo lactancia aislamiento">
-        <div class="top"><div><div class="type">Medicina Nuclear</div><h2 class="title">Gammagrafías</h2></div><div class="tag">Radioprotección</div></div>
+        <div class="top"><div><div class="type">Medicina Nuclear</div><h2 class="title">Gammagrafías</h2></div>
+          
+                  <a href="https://nuclear-man.github.io/Estudios-Medicina-Nuclear/" target="_blank" ><!--enlace nueva pestaña target="_blank"-->  
+          <div class="tag">GUIA MEDICINA NUCLEAR</div>
+          </a>
+        
+        </div>
         <div class="mini"><span class="chip">Verificar embarazo / lactancia</span><span class="chip">Hidratación</span><span class="chip">Radioprotección</span></div>
         <ul>
           <li>Revisar consentimientos y antecedentes relevantes.</li>
@@ -147,7 +201,95 @@
         </ul>
         <div class="footer">GAMMAGRAFIA ÓSEA - GAMMAGRAFÍA CON GALIO-67</div>
       </article>
-    </div>
+
+    
+    
+                						<!--BLOQUE ESTANDAR-->
+      <article class="card" data-type="mn" data-tags="sinayuno hidratacion radiofarmaco embarazo lactancia aislamiento">
+        <div class="top"><div><div class="type">IDEAS TRAUMA</div><h2 class="title">TRAUMATOLOGÍA</h2></div>
+        
+         <a href="INSERTAR AQUI EN ENLACE" target="_blank" ><!--enlace nueva pestaña target="_blank"-->  
+          <div class="tag">ENLACE A...</div>
+          </a>
+        
+        </div>
+        <div class="mini"><span class="chip">IDEAS RÁPIDAS</span><span class="chip">Ayunas</span><span class="chip">IDEAS RÁPIDAS</span></div>
+        <ul>
+          <li>Rellenar con lo que más interese</li>
+          <li>Rellenar con lo que más interese</li>
+          <li>Rellenar con lo que más interese</li>
+          <li>Rellenar con lo que más interese</li>
+          <li>Rellenar con lo que más interese</li>
+        </ul>
+        <div class="footer">INDICACIONES - MÁS - FRECUENTES</div>
+      </article>
+      
+      
+                    						<!--BLOQUE ESTANDAR-->
+      <article class="card" data-type="mn" data-tags="sinayuno hidratacion radiofarmaco embarazo lactancia aislamiento">
+        <div class="top"><div><div class="type">IDEAS CARDIO</div><h2 class="title">CARDIOLOGIA</h2></div>
+          
+        <a href="INSERTAR AQUI EN ENLACE" target="_blank" ><!--enlace nueva pestaña target="_blank"-->  
+          <div class="tag">ENLACE A...</div>
+          </a>
+        
+        </div>
+        <div class="mini"><span class="chip">IDEAS RÁPIDAS</span><span class="chip">Ayunas</span><span class="chip">IDEAS RÁPIDAS</span></div>
+        <ul>
+          <li>Rellenar con lo que más interese</li>
+          <li>Rellenar con lo que más interese</li>
+          <li>Rellenar con lo que más interese</li>
+          <li>Rellenar con lo que más interese</li>
+          <li>Rellenar con lo que más interese</li>
+        </ul>
+        <div class="footer">INDICACIONES - MÁS - FRECUENTES</div>
+      </article>
+      
+                    						<!--BLOQUE ESTANDAR-->
+      <article class="card" data-type="mn" data-tags="sinayuno hidratacion radiofarmaco embarazo lactancia aislamiento">
+        <div class="top"><div><div class="type">IDEAS RÁPIDAS: PUNCIONES???</div><h2 class="title">PROCEDIMIENTO</h2></div>
+          
+        <a href="INSERTAR AQUI EN ENLACE" target="_blank" ><!--enlace nueva pestaña target="_blank"-->  
+          <div class="tag">ENLACE A...</div>
+          </a>
+        
+        </div>
+        <div class="mini"><span class="chip">IDEAS RÁPIDAS</span><span class="chip">Ayunas</span><span class="chip">IDEAS RÁPIDAS</span></div>
+        <ul>
+          <li>Rellenar con lo que más interese</li>
+          <li>Rellenar con lo que más interese</li>
+          <li>Rellenar con lo que más interese</li>
+          <li>Rellenar con lo que más interese</li>
+          <li>Rellenar con lo que más interese</li>
+        </ul>
+        <div class="footer">INDICACIONES - MÁS - FRECUENTES</div>
+      </article>
+      
+      
+                    						<!--BLOQUE ESTANDAR-->
+      <article class="card" data-type="mn" data-tags="anestesia">
+        <div class="top"><div><div class="type">IDEAS RÁPIDAS: HEMODINÁMIA??</div><h2 class="title">PROCEDIMIENTO</h2></div>
+          
+        <a href="INSERTAR AQUI EN ENLACE" target="_blank" ><!--enlace nueva pestaña target="_blank"-->  
+          <div class="tag">ENLACE A...</div>
+          </a>
+        
+        </div>
+        <div class="mini"><span class="chip">IDEAS RÁPIDAS</span><span class="chip">IDEAS RÁPIDAS</span><span class="chip">IDEAS RÁPIDAS</span></div>
+        <ul>
+          <li>Rellenar con lo que más interese</li>
+          <li>Rellenar con lo que más interese</li>
+          <li>Rellenar con lo que más interese</li>
+          <li>Rellenar con lo que más interese</li>
+          <li>Rellenar con lo que más interese</li>
+        </ul>
+        <div class="footer">INDICACIONES - MÁS - FRECUENTES</div>
+      </article>
+  </div>
+      
+    
+    
+											<!--BLOQUE NOTAS PIE DE PÁGINA-->
 
     <div class="note">
       Nota: el contenido es una base funcional para intranet. Debe validarse y ajustarse con los protocolos oficiales del hospital antes de su despliegue clínico.
@@ -170,6 +312,9 @@ function filter(){
     const okT = !t || text.includes(t) || tags.includes(t);
     const okS = s === 'all' || s === type;
     let okW = w === 'all';
+    
+    if (w === 'INSERTARPALABRACLAVE') okW = tags.includes('INSERTARPALABRACLAVE');  /* ESTANDAR DE INCLUIR PALABRAS CLAVE PARA BÚSQUEDA RÁPIDA QUE ESTÉN EN DATA-TAGS*/
+    
     if (w === 'ayuno') okW = tags.includes('ayuno');
     if (w === 'sinayuno') okW = tags.includes('sinayuno');
     if (w === 'contraste') okW = tags.includes('contraste');
